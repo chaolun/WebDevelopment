@@ -10,6 +10,6 @@ var port      = process.env.OPENSHIFT_NODEJS_PORT || 8080;
 app.get("/", function(req,res){
     res.send('practice page');
 
-})        
+});
 
-app.listen(ipaddress,port);
+app.listen(port,ipaddress);

@@ -11,3 +11,5 @@ app.get("/", function(req,res){
     res.send('practice page');
 
 })        
+
+app.listen(ipaddress,port);

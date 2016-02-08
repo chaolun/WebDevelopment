@@ -9,15 +9,26 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <link rel="icon" href="../../favicon.ico">
 
     <title>Dashboard Template for Bootstrap</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
+    <link href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css' rel='stylesheet'>
     <link href="dashboard.css" rel="stylesheet">
+    
+
+    <!-- NOW MAKE DATE PICKER WORK -->
+    <script src='https://code.jquery.com/jquery-2.2.0.min.js' type='text/javascript'></script>
+    <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+    <script src='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js' type='text/javascript'></script>
+    <link href='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/css/bootstrap-datepicker.css' rel='stylesheet'>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.0/js/bootstrap-datepicker.min.js'></script>
+
+
+    <script type='text/javascript'>
+      $( document ).ready(function() {
+          $('#dp3').datepicker();
+      });
+    </script>
   </head>
 
   <body>
@@ -64,37 +75,111 @@
           <form class="form-horizontal">
             <div class='col-md-8'>
               <div class="form-group">
-                <label for="inputUsername3" class="col-sm-2 control-label">Username</label>
+                <label for="firstName" class="col-sm-2 control-label">First Name:</label>
                 <div class="col-sm-8">
                   <input type="text" class="form-control" id="inputUsername3" placeholder="Username">
                 </div>
-                <div class='col-sm-2'>TEST THIS</div>
+                <div class='col-sm-2'>
+                  <div class='glyphicon glyphicon-pencil'></div>
+                  <div class='glyphicon glyphicon-plus'></div>
+                  <div class='glyphicon glyphicon-remove'></div>
+                  <div class='glyphicon glyphicon-align-justify'></div>
+                </div>
               </div>
               <div class="form-group">
-                <label for="inputPassword3" class="col-sm-2 control-label">Password</label>
+                <label for="lastName" class="col-sm-2 control-label">Last Name:</label>
                 <div class="col-sm-8">
                   <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
                 </div>
-              </div>
-              <div class="form-group">
-                <label for="inputPassword4" class="col-sm-2 control-label">Password</label>
-                <div class="col-sm-8">
-                  <input type="password" class="form-control" id="inputPassword4" placeholder="Re-Enter Password">
+                <div class='col-sm-2'>
+                  <div class='glyphicon glyphicon-pencil'></div>
+                  <div class='glyphicon glyphicon-plus'></div>
+                  <div class='glyphicon glyphicon-remove'></div>
+                  <div class='glyphicon glyphicon-align-justify'></div>
                 </div>
               </div>
               <div class="form-group">
-                <label for="inputEmail3" class="col-sm-2 control-label">Email</label>
-                <div class="col-sm-8">
-                  <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                <label for="birthdate" class="col-sm-2 control-label">Birth Date:</label>
+                <div class='col-sm-8'>
+                  <div class='input-group date' id="dp3">
+                      <input  class='form-control' type="text" placeholder='mm/dd/yyyy'>
+                      <span class="input-group-addon">
+                          <span class="glyphicon glyphicon-calendar"></span>
+                      </span>
+                  </div>
+                </div>
+                <div class='col-sm-2'>
+                  <div class='glyphicon glyphicon-pencil'></div>
+                  <div class='glyphicon glyphicon-plus'></div>
+                  <div class='glyphicon glyphicon-remove'></div>
+                  <div class='glyphicon glyphicon-align-justify'></div>
                 </div>
               </div>
               <div class="form-group">
-                <div class="col-sm-offset-2 col-sm-6">
-                  <button type="submit" class="btn btn-default">Register</button>
+                <label for="gender" class="col-sm-2 control-label">Gender:</label>
+                <div class="col-sm-8">
+                  <select class="form-control">
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                  </select>
+                </div>
+                <div class='col-sm-2'>
+                  <div class='glyphicon glyphicon-pencil'></div>
+                  <div class='glyphicon glyphicon-plus'></div>
+                  <div class='glyphicon glyphicon-remove'></div>
+                  <div class='glyphicon glyphicon-align-justify'></div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="role" class="col-sm-2 control-label">Roles:</label>
+                <div class="col-sm-8">
+                  <div class="checkbox">
+                    <label><input type="checkbox" value="">Admin</label>
+                  </div>
+                  <div class="checkbox">
+                    <label><input type="checkbox" value="">Student</label>
+                  </div>
+                  <div class="checkbox">
+                    <label><input type="checkbox" value="">User</label>
+                  </div>
+                </div>
+                <div class='col-sm-2'>
+                  <div class='glyphicon glyphicon-pencil'></div>
+                  <div class='glyphicon glyphicon-plus'></div>
+                  <div class='glyphicon glyphicon-remove'></div>
+                  <div class='glyphicon glyphicon-align-justify'></div>
+                </div>
+              </div> 
+              <div class="form-group">
+                <label for="gender" class="col-sm-2 control-label">License Agreement:</label>
+                <div class="col-sm-8">
+                  <div class="radio">
+                    <label><input type="radio" name="agree">Yes</label>
+                  </div>
+                  <div class="radio">
+                    <label><input type="radio" name="agree">No</label>
+                  </div>
+                </div>
+                <div class='col-sm-2'>
+                  <div class='glyphicon glyphicon-pencil'></div>
+                  <div class='glyphicon glyphicon-plus'></div>
+                  <div class='glyphicon glyphicon-remove'></div>
+                  <div class='glyphicon glyphicon-align-justify'></div>
+                </div>
+              </div>
+              <hr>
+               <div class="form-group">
+                <label for="newField" class="col-sm-2 control-label">Add New Field:</label>
+                <div class="col-sm-8">
+                  <select class="form-control">
+                    <option value="singleLineText">Single Line Text</option>
+                  </select>
+                </div>
+                <div class='col-sm-2'>
+                  <div class='glyphicon glyphicon-plus'></div>
                 </div>
               </div>
           </form>
-            
         </div>
       </div>
     </div>
@@ -102,12 +187,5 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery.min.js"><\/script>')</script>
-    <script src="../../dist/js/bootstrap.min.js"></script>
-    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
-    <script src="../../assets/js/vendor/holder.min.js"></script>
-    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
   </body>
 </html>

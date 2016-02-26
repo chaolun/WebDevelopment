@@ -1,0 +1,120 @@
+<script type='text/javascript'>
+  $( document ).ready(function() {
+    $('#dp3').datepicker();
+  });
+</script>
+<h1 class="page-header">Forms</h1>
+<ul class="nav nav-tabs">
+  <li ><a href="#/forms">Form</a></li>
+  <li class="active"><a href="#/form-fields">Fields</a></li>
+</ul>
+<br />
+
+<form class="form-horizontal">
+  <div class='col-md-8'>
+    <div class="form-group">
+      <label for="firstName" class="col-sm-2 control-label">First Name:</label>
+      <div class="col-sm-8">
+        <input type="text" class="form-control" id="inputUsername3" placeholder="Username">
+      </div>
+      <div class='col-sm-2'>
+        <div class='glyphicon glyphicon-pencil'></div>
+        <div class='glyphicon glyphicon-plus'></div>
+        <div class='glyphicon glyphicon-remove'></div>
+        <div class='glyphicon glyphicon-align-justify'></div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="lastName" class="col-sm-2 control-label">Last Name:</label>
+      <div class="col-sm-8">
+        <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+      </div>
+      <div class='col-sm-2'>
+        <div class='glyphicon glyphicon-pencil'></div>
+        <div class='glyphicon glyphicon-plus'></div>
+        <div class='glyphicon glyphicon-remove'></div>
+        <div class='glyphicon glyphicon-align-justify'></div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="birthdate" class="col-sm-2 control-label">Birth Date:</label>
+      <div class='col-sm-8'>
+        <div class='input-group date' id="dp3">
+          <input  class='form-control' type="text" placeholder='mm/dd/yyyy'>
+          <span class="input-group-addon">
+            <span class="glyphicon glyphicon-calendar"></span>
+          </span>
+        </div>
+      </div>
+      <div class='col-sm-2'>
+        <div class='glyphicon glyphicon-pencil'></div>
+        <div class='glyphicon glyphicon-plus'></div>
+        <div class='glyphicon glyphicon-remove'></div>
+        <div class='glyphicon glyphicon-align-justify'></div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="gender" class="col-sm-2 control-label">Gender:</label>
+      <div class="col-sm-8">
+        <select class="form-control">
+          <option value="male">Male</option>
+          <option value="female">Female</option>
+        </select>
+      </div>
+      <div class='col-sm-2'>
+        <div class='glyphicon glyphicon-pencil'></div>
+        <div class='glyphicon glyphicon-plus'></div>
+        <div class='glyphicon glyphicon-remove'></div>
+        <div class='glyphicon glyphicon-align-justify'></div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="role" class="col-sm-2 control-label">Roles:</label>
+      <div class="col-sm-8">
+        <div class="checkbox">
+          <label><input type="checkbox" value="">Admin</label>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" value="">Student</label>
+        </div>
+        <div class="checkbox">
+          <label><input type="checkbox" value="">User</label>
+        </div>
+      </div>
+      <div class='col-sm-2'>
+        <div class='glyphicon glyphicon-pencil'></div>
+        <div class='glyphicon glyphicon-plus'></div>
+        <div class='glyphicon glyphicon-remove'></div>
+        <div class='glyphicon glyphicon-align-justify'></div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="gender" class="col-sm-2 control-label">License Agreement:</label>
+      <div class="col-sm-8">
+        <div class="radio">
+          <label><input type="radio" name="agree">Yes</label>
+        </div>
+        <div class="radio">
+          <label><input type="radio" name="agree">No</label>
+        </div>
+      </div>
+      <div class='col-sm-2'>
+        <div class='glyphicon glyphicon-pencil'></div>
+        <div class='glyphicon glyphicon-plus'></div>
+        <div class='glyphicon glyphicon-remove'></div>
+        <div class='glyphicon glyphicon-align-justify'></div>
+      </div>
+    </div>
+    <hr>
+    <div class="form-group">
+      <label for="newField" class="col-sm-2 control-label">Add New Field:</label>
+      <div class="col-sm-8">
+        <select class="form-control">
+          <option value="singleLineText">Single Line Text</option>
+        </select>
+      </div>
+      <div class='col-sm-2'>
+        <div class='glyphicon glyphicon-plus'></div>
+      </div>
+    </div>
+  </form>

@@ -5,13 +5,9 @@
             $routeProvider
                 .when("/", {
                     templateUrl: "views/home/home.view.html",
-                    controller: 'SideBarController',
-                    activetab: 'home'
                 })
                 .when("/profile", {
-                    templateUrl: "views/users/profile.view.html",
-                    controller: 'SideBarController',
-                    activetab: 'profile'
+                    templateUrl: "views/users/profile.view.html"
                 })
                 .when("/register", {
                     templateUrl: "views/users/register.view.html"
@@ -20,19 +16,13 @@
                     templateUrl: "views/users/login.view.html"
                 })
                 .when("/admin", {
-                    templateUrl: "views/admin/admin.view.html",
-                    controller: 'SideBarController',
-                    activetab: 'admin'
+                    templateUrl: "views/admin/admin.view.html"
                 })
                 .when("/forms", {
-                    templateUrl: 'views/forms/forms.view.html',
-                    controller: 'SideBarController',
-                    activetab: 'forms'
+                    templateUrl: 'views/forms/forms.view.html'
                 })
                 .when("/form-fields", {
-                    templateUrl: 'views/forms/form-fields.view.html',
-                    controller: 'SideBarController',
-                    activetab: 'forms'
+                    templateUrl: 'views/forms/form-fields.view.html'
                 })
                 .otherwise({
                     redirectTo: "/"

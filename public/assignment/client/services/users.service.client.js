@@ -1,9 +1,9 @@
 (function(){
   angular
-    .module("", [])
+    .module("FormBuilderApp", [])
     .factory("UserService", userService);
 
-  function userService($scope, $http){
+  function userService($http, $q){
     var service = {
       createUser: createUser,
       findAllUsers: findAllUsers, 
@@ -15,42 +15,61 @@
   
     return service;
 
-    function createUser(user, callback){
-      $http
-        .post('/rest/user/', user)
-        .success(callback);
+    function createUser(user){
+      var deferred = $q.defer();
+      $http.post('/rest/user/', user)
+        .success(function(user){
+          deferred.resolve(user);
+        });
+      return deferred.promise; 
     }
 
 
-    function findAllUsers(callback){
-
-      $http
-        .get('/rest/user')
-        .success(callback);
+    function findAllUsers(){
+      var deferred = $q.defer();
+      $http.get('/rest/user')
+        .success(function(user){
+          deferred.resolve(user);
+        });
+      return deferred.promise;
     }
 
     
-    function findUserByUsername(username,callback){
-      $http
-        .get('/rest/user/' + username)
-        .success(callback);
-    
+    function findUserByUsername(username){
+      var deferred = $q.defer();
+      $http.get('/rest/user/' + username)
+        .success(function(user){
+          deferred.resolve(user);
+        });
+      return deferred.promise;
     }
     
-    function updateUser(id, user, callback){
-      $http
-        .put('/rest/user/' + id, user)
-        .success(callback); 
+    function updateUser(id, user){
+      var deferred = $q.defer();
+      $http.put('/rest/user/' + id, user)
+        .success(function(user){
+          deferred.resolve(user);
+        }); 
+      return deferred.promise;
     }
 
-    function deleteUser(callback){
-      
+    function deleteUser(id){
+      var deferred = $q.defer();
+      $http.delete('/rest/user/' + id)
+        .success(function(user){
+          deferred.resolve(user);
+        });
+      return deferred.promise;
     }
 
     function findUserByCredentials(callback){
-      $http
-        .get('/rest/user')
-        .success(callback);
+      var deferred = $q.defer();
+      $http.get('/rest/user')
+        .success(function(user){
+          deferred.resolve(user);
+        });
+
+      return deferred.promise;
     }
   }
 

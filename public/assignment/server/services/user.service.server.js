@@ -8,7 +8,7 @@ module.exports = function(app, model){
     app.delete("/rest/user/:id", deleteUserById);
 
 
-    function findAllCourses(req, res){
+    function findAllUsers(req, res){
         model
             .findAllCourses()
             .then(function(courses){
@@ -17,7 +17,7 @@ module.exports = function(app, model){
             });
     }
 
-    function findCourseById(req, res){
+    function findUserById(req, res){
         var courseId = req.params.id;
         model
             .findCourseById(courseId)
@@ -26,7 +26,7 @@ module.exports = function(app, model){
             });
     }
 
-    function createCourse(req, res){
+    function createUser(req, res){
         //var courseId = req.params.id;
         var courseObj = req.body;
         model
@@ -36,20 +36,20 @@ module.exports = function(app, model){
             });
     }
 
-    function updateCourseById(req, res){
+    function updateUserById(req, res){
         var courseId = req.params.id;
         var courseObj = req.body;
         model
-            .updateCourseById(courseId, courseObj)
+            .updateUserById(courseId, courseObj)
             .then(function(course){
                 res.json(course);
             });
     }
 
-    function deleteCourseById(req, res){
+    function deleteUserById(req, res){
         var courseId = req.params.id;
         model
-            .deleteCourseById(courseId)
+            .deleteUserById(courseId)
             .then(function(courses){
                 res.json(courses);
             });

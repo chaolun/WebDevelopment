@@ -1,10 +1,10 @@
 var q = require('q');
 
 module.exports = function(mongoose){
-  var UserSchema = require('./user.schema.server.js')(mongoose);
-  var userModel = mongoose.model("userModel", UserSchema);
+  var FieldSchema = require('./field.schema.server.js')(mongoose);
+  var fieldModel = mongoose.model("userModel", FieldSchema);
 
-  var users = require("./user.mock.json");
+  // var users = require("./field.mock.json");
 
   var service = {
       createUser: createUser,

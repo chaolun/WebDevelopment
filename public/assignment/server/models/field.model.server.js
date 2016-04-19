@@ -1,65 +1,49 @@
 var q = require('q');
 
 module.exports = function(mongoose){
-  var FieldSchema = require('./field.schema.server.js')(mongoose);
-  var fieldModel = mongoose.model("userModel", FieldSchema);
+    var FieldSchema = require('./field.schema.server.js')(mongoose);
+    var fieldModel = mongoose.model("fieldModel", FieldSchema);
+   
+    var FormSchema = require('./field.schema.server.js')(mongoose);
+    var formModel = mongoose.model('formModel', FormSchema);
 
-  // var users = require("./field.mock.json");
+    // var users = require("./field.mock.json");
 
-  var service = {
-      createUser: createUser,
-      findAllUsers: findAllUsers, 
-      findByUserById: findByUserById,
-      updateUser: updateUser,
-      deleteUser: deleteUser
-
-  };
+    var service = {
+        getFieldsByFormId: getFieldsByFormId,
+        getFieldByFormAndFieldId: getFieldByFormAndFieldId, 
+        deleteFieldByFormAndFieldId: deleteFieldByFormAndFieldId,
+        createFieldWithFormId: createFieldWithFormId,
+        updateFieldWithFormId: updateFieldWithFormId
+    };
   
-  return service;
-  
-  function findAllUsers() {
+    return service;
 
-    //CreateAllCourses();
-
-    var deferred = q.defer();
-    userModel.find(function(err, users){
-        if(err){
-            deferred.reject(err);
-            console.log("find all users errors: " + err);
-        }
-        else{
-            deferred.resolve(users);
-        }
-    });
-    return deferred.promise;
-  }
-
-
-    function findUserById(userId) {
+    function getFieldsByFormId(formId) {
 
         var deferred = q.defer();
-        userModel.findById({_id: userId}, function(err, user){
+        fieldModel.findById({title: formId}, function(err, fields){
             if(err){
                 deferred.reject(err);
             }else{
-            deferred.resolve(user);}
+            deferred.resolve(fields);}
         });
         return deferred.promise;
     }
 
-    function deleteUserById(userId) {
+    function getFieldByFormAndFieldId(fieldId, formId) {
         var deferred = q.defer();
-        #2359c4.remove({_id: userId},function(err, user){
-            if(err){
+        formModel.findById({title:formId}, function(err, form){
+            if (err){
                 deferred.reject(err);
             }
-            else{
-                userModel.find(function(err, user){
-                    if(err){
+            else {
+                form.findById({label: fieldId}, function(err, field){
+                    if (err){
                         deferred.reject(err);
                     }
-                    else{
-                        deferred.resolve(user);
+                    else {
+                        deferred.resolve(field);
                     }
                 });
             }
@@ -67,38 +51,58 @@ module.exports = function(mongoose){
         return deferred.promise;
     }
 
-    function createUser(newUser) {
+    function deleteFieldByFormAndFieldId(fieldId, formId) {
         var deferred = q.defer();
-        // var user = newUser;
+        formModel.findById({title:formId}, function(err, form){
+            if (err){
+                deferred.reject(err);
+            }
+            else {
+                form.remove({label: fieldId}, function(err, field){
+                    if (err){
+                        deferred.reject(err);
+                    }
+                    else {
+                        deferred.resolve(field);
+                    }
+                });
+            }
+        });
+        return deferred.promise;
+    }
 
-        userModel.create(newUser, function(err, user){
+    function createFieldWithFormId(formId, userObj){
+        var deferred = q.defer();
+        formModel.where({ title: formId }).update(userObj, function (err, form){
             if(err){
                 deferred.reject(err);
             }
             else{
-                deferred.resolve(user);
+                if(err){
+                    deferred.reject(err);
+                }
+                else{
+                    deferred.resolve(form);
+                }
             }
         });
-
-        return deferred.promise;
     }
 
-    function updateUserById(userId, userObj) {
+    function updateFieldWithFormId(formId, userObj) {
 
         var deferred = q.defer();
 
-        //delete courseObj._id;
-        console.log(userObj);
-
-        userModel.update({_id: userId}, {$set: userObj}, function(err, user) {
-            if(err){deferred.reject(err);}
+        fieldModel.update({label: formId}, {$set: userObj}, function(err, field) {
+            if(err){
+                deferred.reject(err);
+            }
             else{
-                userModel.find(function(err, users){
+                fieldModel.find(function(err, fields){
                     if(err){
                         deferred.reject(err);
                     }
                     else{
-                        deferred.resolve(users);
+                        deferred.resolve(fields);
                     }
                 });
             }

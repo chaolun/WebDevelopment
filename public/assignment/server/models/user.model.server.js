@@ -10,7 +10,7 @@ module.exports = function(mongoose){
       createUser: createUser,
       findAllUsers: findAllUsers, 
       findByUserById: findByUserById,
-      updateUser: updateUser,
+      updateUserById: updateUserById,
       deleteUser: deleteUser
 
   };
